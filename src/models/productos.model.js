@@ -92,6 +92,14 @@ class productosModel {
 
         return false
     }
+
+    async deleteAll() {
+        try {
+            await writeFile(this.ruta, JSON.stringify([], null, 2))
+        } catch (error) {
+            throw new Error(`Error al borrar todo: ${error}`)
+        }
+    }
 }
 
 module.exports = {
